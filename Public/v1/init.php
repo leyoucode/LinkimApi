@@ -7,7 +7,7 @@
 
 date_default_timezone_set('Asia/Shanghai');
 
-defined('API_ROOT') || define('API_ROOT', dirname(__FILE__) . '/..');
+defined('API_ROOT') || define('API_ROOT', dirname(__FILE__) . '/../..');
 
 require_once API_ROOT . '/PhalApi/PhalApi.php';
 $loader = new PhalApi_Loader(API_ROOT, 'Library');
@@ -20,6 +20,14 @@ DI()->loader = $loader;
 //配置
 DI()->config = new PhalApi_Config_File(API_ROOT . '/Config');
 
+//引入数据库操作类
+DI()->loader->loadFile('V1/Common/Medoo.php');
+//引入APP配置
+DI()->loader->loadFile('V1/Common/Config.php');
+//引入多数据库配置类
+DI()->loader->loadFile('V1/Common/Db.php');
+DI()->loader->loadFile('V1/Model/BaseModel.php');
+
 //调试模式，$_GET['__debug__']可自行改名
 DI()->debug = !empty($_GET['__debug__']) ? true : DI()->config->get('sys.debug');
 
@@ -27,7 +35,7 @@ DI()->debug = !empty($_GET['__debug__']) ? true : DI()->config->get('sys.debug')
 DI()->logger = new PhalApi_Logger_File(API_ROOT . '/Runtime', PhalApi_Logger::LOG_LEVEL_DEBUG | PhalApi_Logger::LOG_LEVEL_INFO | PhalApi_Logger::LOG_LEVEL_ERROR);
 
 //数据操作 - 基于NotORM，$_GET['__sql__']可自行改名
-DI()->notorm = new PhalApi_DB_NotORM(DI()->config->get('dbs'), !empty($_GET['__sql__']));
+//DI()->notorm = new PhalApi_DB_NotORM(DI()->config->get('dbs'), !empty($_GET['__sql__']));
 
 //翻译语言包设定
 SL('zh_cn');

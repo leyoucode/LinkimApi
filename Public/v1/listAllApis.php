@@ -9,7 +9,7 @@
  * <br>使用示例：<br>
 ```
  * <?php
- * class Api_Linkimapi extends PhalApi_Api {
+ * class Api_Demo extends PhalApi_Api {
  *
  *      /**
  *       * 1.1 可在这里输入接口的服务名称
@@ -32,9 +32,9 @@ $root = dirname(__FILE__);
 /**
  * 项目的文件夹名 - 如有需要，请更新此值
  */
-$apiDirName = 'Linkimapi';
+$apiDirName = 'V1';
 
-require_once implode(D_S, array($root, '..', 'init.php'));
+require_once implode(D_S, array($root, 'init.php'));
 DI()->loader->addDirs($apiDirName);
 $files = listDir(implode(D_S, array($root, '..', '..', $apiDirName, 'Api')));
 $allPhalApiApiMethods = get_class_methods('PhalApi_Api');
@@ -107,7 +107,7 @@ function listDir($dir) {
 <head>
     <meta charset="utf-8">
     <title><?php echo $apiDirName; ?> - 在线接口列表</title>
-    <link rel="stylesheet" href="https://staticfile.qnssl.com/semantic-ui/2.1.6/semantic.min.css">
+    <!--link rel="stylesheet" href="https://staticfile.qnssl.com/semantic-ui/2.1.6/semantic.min.css"-->
     <link rel="stylesheet" href="https://staticfile.qnssl.com/semantic-ui/2.1.6/components/table.min.css">
     <link rel="stylesheet" href="https://staticfile.qnssl.com/semantic-ui/2.1.6/components/container.min.css">
     <link rel="stylesheet" href="https://staticfile.qnssl.com/semantic-ui/2.1.6/components/message.min.css">

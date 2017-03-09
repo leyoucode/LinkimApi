@@ -10,9 +10,9 @@ class Domain_User {
             return $rs;
         }
 
-		// 版本1：简单的获取
+	    // 版本1：简单的获取
         $model = new Model_User();
-        $rs = $model->getByUserId($userId);
+        $rs = $model->getUserInfo($userId);
 
 		// 版本2：使用单点缓存/多级缓存 (应该移至Model层中)
 		/**

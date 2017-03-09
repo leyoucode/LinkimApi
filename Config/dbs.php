@@ -10,9 +10,9 @@ return array(
     'servers' => array(
         'db_linkimapi' => array(                         //服务器标记
             'host'      => 'localhost',             //数据库域名
-            'name'      => 'linkimapi',               //数据库名字
-            'user'      => 'root',                  //数据库用户名
-            'password'  => '111111',	                    //数据库密码
+            'name'      => 'liuwei.co',               //数据库名字
+            'user'      => 'liuwei',                  //数据库用户名
+            'password'  => 'Yixuan@201314',	                    //数据库密码
             'port'      => '3306',                  //数据库端口
             'charset'   => 'UTF8',                  //数据库字符集
         ),
@@ -24,10 +24,10 @@ return array(
     'tables' => array(
         //通用路由
         '__default__' => array(
-            'prefix' => 'lm_',
+            'prefix' => 'qa_',
             'key' => 'id',
             'map' => array(
-                array('db' => 'db_linkimapi'),
+                array('db' => 'liuwei.co'),
             ),
         ),
 
